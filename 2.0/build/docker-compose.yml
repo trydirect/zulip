@@ -1,0 +1,17 @@
+version: '2.1'
+
+volumes:
+   zulip-data:
+        driver: local
+
+services:
+  zulip:
+    image: trydirect/zulip:2.0
+    build: ""
+    container_name: zulip
+    restart: always
+    env_file: .env
+#    command: ["bash", "-c", "sleep infinity"]
+
+    volumes:
+      - ./zulip:/var/log/zulip
